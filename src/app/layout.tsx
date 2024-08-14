@@ -20,15 +20,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <div>
+        <div className="overflow-hidden">
           <Image
             src={bg}
             alt=""
             className="fixed top-0 bottom-0 left-0 right-0 object-cover"
           />
-          <main className="w-full h-full relative flex">
+          <main className="w-full h-[100vh] relative flex overflow-hidden">
             <Header />
-            <div className="bg-black/80 h-[calc(100vh-1.25rem)] w-full p-[3rem] rounded-3xl m-3">
+            <div className="bg-black/80 h-[calc(100vh-1.25rem)] w-full p-[3rem] rounded-3xl m-3 overflow-y-scroll no-scrollbar">
               {children}
             </div>
           </main>
