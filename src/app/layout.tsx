@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { Header } from "@/components/Header";
 import Image from "next/image";
-import bg from "../../public/bg1.jpg";
+import bg from "../../public/bg2.jpg";
 import "./globals.css";
 
 const font = Poppins({ weight: ["400", "600", "700"], subsets: ["latin"] });
@@ -28,7 +28,9 @@ export default function RootLayout({
           />
           <main className="w-full h-full relative flex">
             <Header />
-            {children}
+            <div className="bg-black/80 h-[calc(100vh-1.25rem)] w-full p-[3rem] rounded-3xl m-3">
+              {children}
+            </div>
           </main>
         </div>
       </body>
