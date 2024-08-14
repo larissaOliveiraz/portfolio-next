@@ -1,6 +1,6 @@
 "use client";
 
-import { House, PencilRuler, TableOfContents } from "lucide-react";
+import { Contact, House, PencilRuler, TableOfContents } from "lucide-react";
 import { HeaderButton } from "./HeaderButton";
 import { usePathname } from "next/navigation";
 
@@ -21,6 +21,12 @@ export function Header() {
           isActive={pathname === "/habilities"}
           icon={PencilRuler}
           pathname="/habilities"
+        />
+        <HeaderButton
+          title="Contato"
+          isActive={pathname === "/contacts"}
+          icon={Contact}
+          pathname="/contacts"
         />
       </div>
     </header>

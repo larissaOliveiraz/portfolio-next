@@ -22,10 +22,6 @@ export default function Habilities() {
     <div className="text-white">
       <header>
         <h1 className="text-white font-[700] text-5xl">Habilidades</h1>
-        {/* <h1 className="text-white font-[700] text-5xl">Larissa Oliveira</h1>
-        <p className="text-white/80 font-[400] text-[2rem]">
-          Desenvolvedora Fullstack
-        </p> */}
       </header>
 
       <div className="my-6 flex flex-col gap-4">
