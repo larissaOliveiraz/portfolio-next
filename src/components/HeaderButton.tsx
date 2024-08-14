@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, ChevronRight, Circle } from "lucide-react";
+import { ChevronDown, ChevronRight, Circle, LucideProps } from "lucide-react";
 import Link from "next/link";
 
 type HeaderButtonProps = {
@@ -8,6 +8,7 @@ type HeaderButtonProps = {
   onExpand?: () => void;
   pathname?: string;
   isActive: boolean;
+  icon?: React.ComponentType<LucideProps>;
   subitems?: boolean;
   subitemsExpanded?: boolean;
 };
@@ -17,6 +18,7 @@ export function HeaderButton({
   onExpand,
   pathname = "/",
   isActive,
+  icon: Icon,
   subitems = false,
   subitemsExpanded = false,
 }: HeaderButtonProps) {
@@ -41,7 +43,7 @@ export function HeaderButton({
         isActive && "bg-white/20"
       }`}
     >
-      <Circle size={15} fill="white" />
+      {Icon && <Icon size={15} color="white" />}
       <p className="text-white">{title}</p>
     </Link>
   );

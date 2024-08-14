@@ -1,6 +1,6 @@
 "use client";
 
-import { TableOfContents } from "lucide-react";
+import { House, PencilRuler, TableOfContents } from "lucide-react";
 import { HeaderButton } from "./HeaderButton";
 import { usePathname } from "next/navigation";
 
@@ -14,8 +14,14 @@ export function Header() {
         <h2 className="text-white font-[600] text-[1.5rem]">Navegação</h2>
       </div>
 
-      <div>
-        <HeaderButton title="Início" isActive={pathname === "/"} />
+      <div className="flex flex-col gap-2">
+        <HeaderButton title="Início" isActive={pathname === "/"} icon={House} />
+        <HeaderButton
+          title="Habilidades"
+          isActive={pathname === "/habilities"}
+          icon={PencilRuler}
+          pathname="/habilities"
+        />
       </div>
     </header>
   );
