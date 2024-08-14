@@ -2,10 +2,10 @@
 
 import { TableOfContents } from "lucide-react";
 import { HeaderButton } from "./HeaderButton";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export function Header() {
-  const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <header className="bg-black/80 h-[calc(100vh-1.25rem)] w-[20rem] p-4 rounded-3xl m-3">
@@ -15,7 +15,7 @@ export function Header() {
       </div>
 
       <div>
-        <HeaderButton title="Início" action={() => router.push("/")} />
+        <HeaderButton title="Início" isActive={pathname === "/"} />
       </div>
     </header>
   );

@@ -1,35 +1,48 @@
 "use client";
 
 import { ChevronDown, ChevronRight, Circle } from "lucide-react";
+import Link from "next/link";
 
 type HeaderButtonProps = {
   title: string;
-  action: () => void;
+  onExpand?: () => void;
+  pathname?: string;
+  isActive: boolean;
   subitems?: boolean;
   subitemsExpanded?: boolean;
 };
 
 export function HeaderButton({
   title,
-  action,
+  onExpand,
+  pathname = "/",
+  isActive,
   subitems = false,
   subitemsExpanded = false,
 }: HeaderButtonProps) {
-  return (
+  return subitems ? (
     <button
-      onClick={action}
-      className="flex gap-3 items-center w-full text-left px-3 py-1 rounded-lg hover:bg-white/10"
+      onClick={onExpand}
+      className={`flex gap-3 items-center w-full text-left px-3 py-1 rounded-lg hover:bg-white/10 ${
+        isActive && "bg-white/20"
+      }`}
     >
-      {subitems ? (
-        subitemsExpanded ? (
-          <ChevronDown size={18} color="white" />
-        ) : (
-          <ChevronRight size={18} color="white" />
-        )
+      {subitemsExpanded ? (
+        <ChevronDown size={18} color="white" />
       ) : (
-        <Circle size={15} color="white" fill="white" />
+        <ChevronRight size={18} color="white" />
       )}
       <p className="text-white">{title}</p>
     </button>
+  ) : (
+    <Link
+      href={pathname}
+      className={`flex gap-3 items-center w-full text-left px-3 py-1 rounded-lg hover:bg-white/10 ${
+        isActive && "bg-white/20"
+      }`}
+    >
+      <Circle size={15} fill="white" />
+      <p className="text-white">{title}</p>
+    </Link>
   );
 }
