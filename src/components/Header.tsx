@@ -1,8 +1,9 @@
 "use client";
-
 import {
+  Circle,
   CircleDollarSign,
   Contact,
+  CornerDownRight,
   House,
   PencilRuler,
   TableOfContents,
@@ -10,13 +11,24 @@ import {
 } from "lucide-react";
 import { HeaderButton } from "./HeaderButton";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { FrontendProjects } from "../db/FrontendProjects";
+import { BackendProjects } from "../db/BackendProjects";
 
 export function Header() {
   const pathname = usePathname();
-  const [projectsExpanded, setProjectsExpanded] = useState(false);
   const [frontendExpanded, setFrontendExpanded] = useState(false);
   const [backendExpanded, setBackendExpanded] = useState(false);
+
+  useEffect(() => {
+    if (
+      !pathname.includes("/projects/backend") &&
+      !pathname.includes("projects/frontend")
+    ) {
+      setBackendExpanded(false);
+      setFrontendExpanded(false);
+    }
+  }, [pathname]);
 
   return (
     <header className="bg-black/80 h-[calc(100vh-1.25rem)] w-[20rem] p-4 rounded-3xl m-3">
@@ -46,59 +58,50 @@ export function Header() {
           />
         </div>
         <div className="pt-5">
-          <HeaderButton
-            title="Projects"
-            isActive={pathname == "/projects"}
-            subitems
-            subitemsExpanded={projectsExpanded}
-            onExpand={() => setProjectsExpanded(!projectsExpanded)}
-            pathname="/projects"
-          />
-          {projectsExpanded && (
-            <div className="ml-3 flex flex-col gap-2 mt-2">
-              <div>
-                <HeaderButton
-                  title="Frontend"
-                  pathname="/projects/frontend"
-                  isActive={pathname == "/projects/frontend"}
-                  subitems
-                  subitemsExpanded={frontendExpanded}
-                  onExpand={() => setFrontendExpanded(!frontendExpanded)}
-                />
-                {frontendExpanded && (
+          <h2 className="text-white">Projetos</h2>
+          <div className="flex flex-col gap-2 mt-2">
+            <div className={`${frontendExpanded && "bg-white/10"} rounded-2xl`}>
+              <HeaderButton
+                title="Frontend"
+                pathname="/projects/frontend"
+                subitems
+                subitemsExpanded={frontendExpanded}
+                onExpand={() => setFrontendExpanded(!frontendExpanded)}
+              />
+              {frontendExpanded &&
+                FrontendProjects.map((project) => (
                   <div className="ml-3">
                     <HeaderButton
-                      title="Finance Next"
-                      isActive={pathname == "/projects/frontend/finance-next"}
-                      pathname="/projects/frontend/finance-next"
-                      icon={CircleDollarSign}
+                      title={project.title}
+                      isActive={pathname == `/projects/frontend/${project.id}`}
+                      pathname={`/projects/frontend/${project.id}`}
+                      icon={CornerDownRight}
                     />
                   </div>
-                )}
-              </div>
-
-              <div>
-                <HeaderButton
-                  title="Backend"
-                  pathname="/projects/backend"
-                  isActive={pathname == "/projects/backend"}
-                  subitems
-                  subitemsExpanded={backendExpanded}
-                  onExpand={() => setBackendExpanded(!backendExpanded)}
-                />
-                {backendExpanded && (
-                  <div className="ml-3">
-                    <HeaderButton
-                      title="Delivery Spring"
-                      isActive={pathname == "/projects/backend/delivery-spring"}
-                      pathname="/projects/backend/delivery-spring"
-                      icon={Utensils}
-                    />
-                  </div>
-                )}
-              </div>
+                ))}
             </div>
-          )}
+
+            <div className={`${backendExpanded && "bg-white/10"} rounded-2xl`}>
+              <HeaderButton
+                title="Backend"
+                pathname="/projects/backend"
+                subitems
+                subitemsExpanded={backendExpanded}
+                onExpand={() => setBackendExpanded(!backendExpanded)}
+              />
+              {backendExpanded &&
+                BackendProjects.map((project) => (
+                  <div className="ml-3">
+                    <HeaderButton
+                      title={project.title}
+                      isActive={pathname == `/projects/backend/${project.id}`}
+                      pathname={`/projects/backend/${project.id}`}
+                      icon={CornerDownRight}
+                    />
+                  </div>
+                ))}
+            </div>
+          </div>
         </div>
       </div>
     </header>
