@@ -24,6 +24,7 @@ export default function RootLayout({
           <Image
             src={bg}
             alt=""
+            priority
             className="fixed top-0 bottom-0 left-0 right-0 object-cover"
           />
           <main className="w-full h-[100vh] relative flex overflow-hidden">
