@@ -34,10 +34,10 @@ export default function Home() {
         </p>
       </div>
 
-      <main className=" flex flex-col gap-5">
+      <main className="flex flex-col gap-5">
         <h2 className="text-white font-[600] text-[2rem]">Formação</h2>
-        <div className="flex gap-5 text-white border border-white p-5 px-12 rounded-3xl">
-          <div className="w-[400px]">
+        <div className="flex items-center text-white border border-white p-5 px-12 rounded-3xl">
+          <div className="h-full mr-12">
             <Image src={pucImg} alt="" width={190} />
           </div>
           <div>
@@ -47,8 +47,8 @@ export default function Home() {
             <h3 className="mt-5 font-[600] text-[1.5rem]">
               Sistemas de Informação
             </h3>
-            <div className="ml-5">
-              <h4 className="font-[600] text-[1.15rem]">
+            <div>
+              <h4 className="text-[1.15rem]">
                 Modalidade à distância (EAD) - 1° Semestre
               </h4>
               <p>Previsão de conclusão: 06/2028</p>
@@ -56,8 +56,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3 text-white border border-white p-5 rounded-3xl">
-          <div className="w-[440px]">
+        <div className="flex items-center text-white border border-white p-5 px-1 rounded-3xl">
+          <div className="w-[400px] h-full flex items-center justify-center">
             <Image src={impactaImg} alt="" width={400} />
           </div>
           <div>
@@ -67,8 +67,8 @@ export default function Home() {
             <h3 className="mt-5 font-[600] text-[1.5rem]">
               Análise e Desenvolvimento de Sistemas
             </h3>
-            <div className="ml-5">
-              <h4 className="font-[600] text-[1.15rem]">
+            <div>
+              <h4 className="text-[1.15rem]">
                 Modaliade Presencial e EAD - 5 Semestres
               </h4>
               <p>Conclusão: 06/2024</p>
@@ -77,8 +77,8 @@ export default function Home() {
         </div>
 
         <h2 className="text-white font-[600] text-[2rem]">Cursos</h2>
-        <div className="flex gap-12 text-white border border-white p-5 px-16 rounded-3xl">
-          <div className="w-[370px]">
+        <div className="flex items-center text-white border border-white p-5 px-0 rounded-3xl">
+          <div className="w-[400px] h-full flex items-center justify-center">
             <Image src={cubosImg} alt="" width={300} />
           </div>
           <div>
@@ -86,8 +86,8 @@ export default function Home() {
             <h3 className="mt-5 font-[600] text-[1.5rem]">
               Desenvolvimento de Software - Backend
             </h3>
-            <div className="ml-5">
-              <h4 className="font-[600] text-[1.15rem]">
+            <div>
+              <h4 className="text-[1.15rem]">
                 Modalidade à distância (EAD) - 5 Meses de duração
               </h4>
               <p>Conclusão: 11/2023</p>
