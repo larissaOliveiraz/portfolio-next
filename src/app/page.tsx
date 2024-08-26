@@ -1,7 +1,7 @@
 import Image from "next/image";
-import impactaImg from "../../public/impacta3.png";
-import pucImg from "../../public/puc.png";
-import cubosImg from "../../public/cubos.png";
+import impactaImg from "../../public/edc/impacta3.png";
+import pucImg from "../../public/edc/puc.png";
+import cubosImg from "../../public/edc/cubos.png";
 
 export default function Home() {
   return (
