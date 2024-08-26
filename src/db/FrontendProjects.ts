@@ -5,7 +5,7 @@ interface FrontendProject {
   description: string;
   status: "DONE" | "DOING"
   functionalities: string[];
-  website: string;
+  website?: string;
   github: string;
   tech: string[];
   images: string[];
@@ -28,5 +28,21 @@ export const FrontendProjects: FrontendProject[] = [
     github: "https://github.com/larissaOliveiraz/finance-next",
     tech: ["Javascript", "Typescript", "NextJS", "TailwindCSS", "PhosphorIcons", "localStorage"],
     images: ["/projects/finance-app.png"]
+  },
+  {
+    id: "2",
+    title: "Space Travel Web",
+    subtitle: "Landing page sobre viagens espaciais",
+    description: "Essa aplicação tem fins informativos, seu principal objetivo é educar os usuários interessados em planetas, luas e outros astros do universo. Além disso, o site dispõe de mais informações sobre missões realizadas pela NASA e sua tripulação.",
+    status: "DONE",
+    functionalities: [
+      "Acessar informações sobre planetas, luas e outros astros do universo.",
+      "Acessar informações sobre missões realizadas pela NASA.",
+      "Acessar informações sobre a tripulação das diferentes missões.",
+      "Navegação intuitiva e leve."
+    ],
+    github: "https://github.com/larissaOliveiraz/space-travel-web",
+    tech: ["Javascript", "Typescript", "React", "Styled-Components", "Axios", "React Router", "Vite"],
+    images: ["/projects/space-travel.png"]
   }
 ]
